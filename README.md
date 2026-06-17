@@ -25,5 +25,3 @@ Puis ouvrir l'URL affichee dans le terminal.
 - `src/persistence.js` : sauvegarde localStorage avec version de schema.
 - `src/ui.js` : rendu du tableau.
 - `src/main.js` : point d'entree qui branche le tout.
-- `CANDIDATE_TASKS.md` : consignes a donner a la candidate.
-- `INTERVIEWER_GUIDE.md` : criteres d'evaluation et pieges par tache.
