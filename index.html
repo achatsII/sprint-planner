@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Planner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <h1>Sprint Planner</h1>
+        <p class="intro">
+          Une mini application de planification pour organiser les taches d'un sprint.
+        </p>
+      </div>
+      <div class="toolbar">
+        <div class="history-controls" role="group" aria-label="Historique">
+          <button id="undo-btn" class="icon-button" type="button" aria-label="Annuler" title="Annuler (Ctrl+Z)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 14 4 9l5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button id="redo-btn" class="icon-button" type="button" aria-label="Refaire" title="Refaire (Ctrl+Y)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m15 14 5-5-5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 9H9.5A5.5 5.5 0 0 0 4 14.5v0A5.5 5.5 0 0 0 9.5 20H13" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <button id="reset-demo" class="ghost-button" type="button">Recharger les donnees demo</button>
+      </div>
+    </section>
+
+    <section class="composer" aria-labelledby="add-task-title">
+      <h2 id="add-task-title">Ajouter une tache</h2>
+      <form id="task-form" class="task-form">
+        <label>
+          Titre
+          <input id="task-title" type="text" placeholder="Ex: Preparer la demo client" required>
+        </label>
+
+        <label>
+          Priorite
+          <select id="task-priority">
+            <option value="low">Basse</option>
+            <option value="medium" selected>Moyenne</option>
+            <option value="high">Haute</option>
+          </select>
+        </label>
+
+        <label>
+          Echeance
+          <input id="task-due-date" type="date">
+        </label>
+
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <section class="board" aria-label="Tableau des taches">
+      <article class="column" data-status="todo">
+        <h2>A faire</h2>
+        <div class="task-list" id="todo-list"></div>
+      </article>
+
+      <article class="column" data-status="doing">
+        <h2>En cours</h2>
+        <div class="task-list" id="doing-list"></div>
+      </article>
+
+      <article class="column" data-status="done">
+        <h2>Termine</h2>
+        <div class="task-list" id="done-list"></div>
+      </article>
+    </section>
+  </main>
+
+  <template id="task-card-template">
+    <article class="task-card">
+      <div class="task-card__header">
+        <h3></h3>
+        <span class="priority-badge"></span>
+      </div>
+      <p class="due-date"></p>
+      <div class="task-card__actions">
+        <button class="move-left" type="button">Reculer</button>
+        <button class="move-right" type="button">Avancer</button>
+        <button class="delete-task danger" type="button">Supprimer</button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
